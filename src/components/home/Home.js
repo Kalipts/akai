@@ -4,9 +4,11 @@ import ListResource from "../list/ListResource";
 
 const Home = () => {
   return (
-    <div>
-      <AddResource />
-      <ListResource />
+    <div className="row">
+      <div>
+        <AddResource />
+        <ListResource />
+      </div>
     </div>
   );
 };

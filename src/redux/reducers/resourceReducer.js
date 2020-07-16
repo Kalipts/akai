@@ -4,17 +4,23 @@ const resourceReducer = (state = [], action) => {
   switch (action.type) {
     case types.CREATE_RESOURCE:
       return [...state, { ...action.resource }];
+
     case types.DELETE_RESOURCE:
       return state.filter((resource) => resource.id !== action.id);
+
     case types.UPDATE_RESOURCE:
-      return state.map((resouce) => {
-        if (resouce.id === action.id) {
+      return state.map((resource) => {
+        console.log("action: ", action.resource);
+        if (resource.id === action.resource.id) {
           return {
-            ...resouce,
-            action,
+            ...resource,
+            name: action.resource.name,
           };
-        } else return resouce;
+        } else {
+          return resource;
+        }
       });
+
     default:
       return state;
   }

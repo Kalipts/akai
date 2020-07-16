@@ -5,7 +5,7 @@ import * as resourceActions from "../../redux/actions/resourceAction";
 
 const AddResource = (props) => {
   let name = useRef();
-  const [id, setId] = useState(1);
+  const [id, setId] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,12 +14,13 @@ const AddResource = (props) => {
       name: name.current.value,
     };
     setId(id + 1);
+    console.log(resource);
     props.actions.createResource(resource);
   };
 
   return (
     <div>
-      <h1>Add Task</h1>
+      <h1>List</h1>
       <form onSubmit={handleSubmit}>
         <input ref={name} required type="text" placeholder="Enter task" />
         <input type="submit" value="Save" />
